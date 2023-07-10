@@ -34,18 +34,12 @@ app.get('/api', function (req, res) {
 
 // POST File
 app.post('/api/upload', function (req, res) {
-  if (!req.file) {
-    console.log("No file is available!");
-    return res.send({
-      success: false
-    });
-
-  } else {
+  
     console.log('File is available!');
     return res.send({
       success: true
     })
-  }
+  
 });
 
 // Create PORT
