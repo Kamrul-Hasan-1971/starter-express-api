@@ -3,7 +3,7 @@ const express = require('express'),
   cors = require('cors'),
   multer = require('multer'),
   bodyParser = require('body-parser');
-
+app.use(cors());
 // File upload settings // 
 const PATH = './uploads';
 
@@ -22,7 +22,7 @@ let upload = multer({
 
 // Express settings
 const app = express();
-app.use(cors());
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: false
@@ -33,7 +33,7 @@ app.get('/api', function (req, res) {
 });
 
 // POST File
-app.post('/api/upload', function (req, res) {
+app.post('/api/upload', upload.single('image'), function (req, res) {
   
     console.log('File is available!');
     return res.send({
