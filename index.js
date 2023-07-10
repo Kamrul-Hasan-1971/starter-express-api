@@ -4,7 +4,7 @@ const express = require('express'),
   multer = require('multer'),
   bodyParser = require('body-parser');
 
-// File upload settings  
+// File upload settings // 
 const PATH = './uploads';
 
 let storage = multer.diskStorage({
